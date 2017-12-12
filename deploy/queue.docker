@@ -1,7 +1,4 @@
-FROM php:7
+FROM cangyan/php7-lumen
 
-RUN apt-get update && apt-get install -y libmcrypt-dev mysql-client \
-    && docker-php-ext-install mcrypt pdo_mysql
-
-WORKDIR /var/www
-CMD ["/bin/sh", "./docker/queue.sh"]
+WORKDIR /var/www/api/
+CMD ["/bin/sh", "../deploy/queue.sh"]
